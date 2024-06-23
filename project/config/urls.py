@@ -21,5 +21,5 @@ from . import views #! Importación de las vistas de views.py
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludar/', views.saludar),
-
+    path("nombre/<str:nombre>/<str:apellido>", views.nombre),
 ]
