@@ -8,7 +8,7 @@
 
 # mkdir project
 
-# Git init para inicializar un repositorio vacio
+# git init para inicializar un repositorio vacio
 
 # django-admin startproject config . (Para crear la estructura de configuración de un proyecto Django, tener en cuenta el .) 
 
