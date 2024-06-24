@@ -1,15 +1,23 @@
-## AppWeb con Django ## 
+## AppWeb con Django ## (CREAR CARPETA)
 
-# Crear entorno virtual: python -m venv .venv
+# 1 Crear entorno virtual: python -m venv .venv
 
-# Activar entorno virtual: .venv/Scripts/Activate.ps1
+# 2 Activar entorno virtual: .venv/Scripts/Activate.ps1
 
-# Instalar Django: pip install django
+# 3 mkdir project
 
-# mkdir project
+# 4 Instalar Django: pip install django
 
-# git init para inicializar un repositorio vacio
+# 5 Crear archivo .gitignore:
+# .venv
+# !**/migrations/__init__.py
+# **/migrations/*.py
+# __pycache__/
 
-# django-admin startproject config . (Para crear la estructura de configuración de un proyecto Django, tener en cuenta el .) 
+# 6 Crear archivo README.md
 
-# Crear views.py dentro de config
+# 7 git init para inicializar un repositorio vacio
+
+# 8 django-admin startproject config . (Para crear la estructura de configuración de un proyecto Django, tener en cuenta el .) 
+
+# 9 Crear views.py dentro de config

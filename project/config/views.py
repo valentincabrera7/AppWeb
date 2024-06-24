@@ -3,7 +3,7 @@ from django.http import HttpResponse #! Importación
 from django.shortcuts import render #! Importación #! AHORA
  
 def saludar(request):
-    return HttpResponse("Hola Mundo")
+    return HttpResponse(request, "Hola Mundo")
 
 def nombre(request, nombre, apellido):
     nombre = nombre.capitalize()
