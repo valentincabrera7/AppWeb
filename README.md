@@ -21,3 +21,5 @@
 # 8 django-admin startproject config . (Para crear la estructura de configuración de un proyecto Django, tener en cuenta el .) 
 
 # 9 Crear views.py dentro de config
+
+# 10 python manage.py startapp APP(nombre de la aplicación)
