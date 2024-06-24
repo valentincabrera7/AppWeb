@@ -1,7 +1,7 @@
 from django.http import HttpResponse #! Importación
 # from django.template import Context, Template #! ANTES
-from django.shortcuts import render #! AHORA
-
+from django.shortcuts import render #! Importación #! AHORA
+ 
 def saludar(request):
     return HttpResponse("Hola Mundo")
 
