@@ -23,3 +23,10 @@
 # 9 Crear views.py dentro de config
 
 # 10 python manage.py startapp APP(nombre de la aplicación)
+
+# 11 Registrar la app en config - settings.py
+
+# 12 Despúes de crear modelos (clases) migrar para la base de datos
+# python manage.py makemigrations (para que primeramente haga un seguimiento)
+# python manage.py migrate (para que migre los modelos a la base de datos)
+# python manage.py check app (para verificar posibles errores)
