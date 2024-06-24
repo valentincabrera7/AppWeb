@@ -1,5 +1,5 @@
 from django.http import HttpResponse #! Importación
-# from django.template import Context, Template #! ANTES
+from django.template import Context, Template #! ANTES
 from django.shortcuts import render #! Importación #! AHORA
  
 def saludar(request):
@@ -20,6 +20,13 @@ def template(request):
     #return HttpResponse(mi_documento)
     #! AHORA 
     return render(request, "template1.html")
+
+def template2(request):
+    nombre = "Luis"
+    apellido = "Perez"
+    datos = {"nombre": nombre, "apellido": apellido}
+    mi_contexto = Context(datos)
+    return render(request, "template2.html", mi_contexto)
     
 
 
