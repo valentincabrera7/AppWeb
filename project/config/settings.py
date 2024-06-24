@@ -54,7 +54,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"], #! REGISTRADA CARPETA TEMPLATES 
+        'DIRS': [BASE_DIR / "templates"], #! PARA QUE DJANGO BUSQUE AUTOMATICAMENTE LOS ARCHIVOS HTML EN LA CARPETA TEMPLATES
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,6 +1,6 @@
-from django.http import HttpResponse #! Importación
-from django.template import Context, Template #! ANTES
-from django.shortcuts import render #! Importación #! AHORA
+from django.http import HttpResponse 
+# from django.template import Context, Template #! ANTES
+from django.shortcuts import render #! AHORA
  
 def saludar(request):
     return HttpResponse(request, "Hola Mundo")
@@ -15,19 +15,27 @@ def template(request):
     #mi_html = open("./templates/template1.html")
     #mi_template = Template(mi_html.read())
     #mi_html.close()
-    #mi_context = Context()
-    #mi_documento = mi_template.render(mi_context)
+    #mi_contexto = Context(datos)
+    #mi_documento = mi_template.render(mi_contexto)
     #return HttpResponse(mi_documento)
-    #! AHORA 
-    return render(request, "template1.html")
 
-def template2(request):
-    nombre = "Luis"
-    apellido = "Perez"
+    #! AHORA
+    #! VARIABLES PARA TEMPLATES
+    nombre = "Luis" #! CONTEXTO PARA TEMPLATES
+    apellido = "Perez" #! CONTEXTO PARA TEMPLATES
     datos = {"nombre": nombre, "apellido": apellido}
-    mi_contexto = Context(datos)
-    return render(request, "template2.html", mi_contexto)
+    return render(request, "template1.html", datos)
+
+
+def notas(request):
+    notas = [5, 10, 7]
+    contexto = {"notas": notas}
+    return render(request, "notas.html", contexto)
+
+
     
+
+
 
 
     
