@@ -11,7 +11,7 @@ class Cliente(models.Model): #! BASE DE DATOS DESPUES DE MIGRAR CON COMANDOS
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     nacimiento = models.DateField()
-    pais_origen_id = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True) 
-
+    pais_origen_id = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True) #! SET_NULL PARA QUE NO SE BORRE EL REGISTRO DE TODOS SI ELIMINO SOLO UNO
+ 
     def __str__(self):
         return f"{self.apellido} {self.nombre}" #! PARA QUE ME DIGA EL NOMBRE y APELLIDO EN EL PANEL DE ADMIN DE DJANGO
