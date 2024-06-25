@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1>Página de clientes registrados</h1>
-        <h2>Clientes registrados:
-            {% for cliente in clientes %}
-                <p>{{ cliente.nombre }}</p>
-                <p>{{ cliente.apellido }}</p>
-                <p>{{ cliente.nacimiento }}</p>
-                <p>{{ cliente.pais_origen_id }}</p>
-            {% endfor %}
-        </h2>
+{% extends 'Home/base.html' %}
 
-</body>
-</html>
+{% block TITULO %}
+    Clientes
+{% endblock TITULO %}
+
+{% block CONTENIDO %}
+    {% for cliente in clientes %}
+        <p>{{ cliente.nombre }}</p>
+        <p>{{ cliente.apellido }}</p>
+        <p>{{ cliente.nacimiento }}</p>
+        <p>{{ cliente.pais_origen_id }}</p>
+     {% endfor %}
+     <a href="{% url 'Home:home' %}">Volver</a>
+{% endblock CONTENIDO %}
