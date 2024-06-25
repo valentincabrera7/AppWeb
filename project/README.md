@@ -14,7 +14,7 @@
 # **/migrations/*.py
 # __pycache__/
 
-# 6 Crear archivo README.md
+# 6 Crear archivo README.md y requirements.txt (este ultimo desde la consola)
 
 # 7 git init para inicializar un repositorio vacio
 
