@@ -1,0 +1,15 @@
+{% extends 'Home/base.html' %}
+
+{% block TITULO %}
+    CLIENTES
+{% endblock TITULO %}
+
+{% block CONTENIDO %}
+    {% for cliente in clientes %}
+        <p>{{ cliente.nombre }}</p>
+        <p>{{ cliente.apellido }}</p>
+        <p>{{ cliente.nacimiento }}</p>
+        <p>{{ cliente.pais_origen_id }}</p>
+     {% endfor %}
+     <a href="{% url 'Home:home' %}">Volver</a>
+{% endblock CONTENIDO %}
