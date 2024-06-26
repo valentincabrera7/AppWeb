@@ -33,3 +33,5 @@
 # python manage.py createsuperuser (para entrar al panel de administración de Django)
 
 # 13 Registrar los modelos en admin.py
+
+# 14 pip install djhtml
