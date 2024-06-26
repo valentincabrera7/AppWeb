@@ -1,9 +1,11 @@
 {% extends 'Home/base.html' %}
 
 {% block TITULO %}
-    Titulo
+    Home
 {% endblock TITULO %}
 
 {% block CONTENIDO %}
-   <p>{{ saludo }}</p> 
+   <a href="{% url 'cliente:home' %}">Ir a clientes</a>
+   <br>
+   <a href="{% url 'producto:home' %}">Ir a productos</a>
 {% endblock CONTENIDO %}
