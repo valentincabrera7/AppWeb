@@ -1,6 +1,8 @@
 from .models import Cliente, Pais #! Importación 
 from django.shortcuts import render, redirect
+from .forms import ClienteForm #! Importación 
 from datetime import date # datefield()
+from django.http import HttpResponse, HttpRequest
 
 def home(request): #! Importada a urls
     clientes_registrados = Cliente.objects.all() #! Object.all LLAMADO A LA BASE DE DATOS
@@ -8,7 +10,7 @@ def home(request): #! Importada a urls
     return render(request, "cliente/index.html", contexto)
                                          #! HTML
 
-def crear_cliente(request):
+def crear_clientes(request):
     p1 = Pais(nombre="Colombia")
     p2 = Pais(nombre="Perú")
     p3 = Pais(nombre="Brasil")
@@ -29,4 +31,29 @@ def crear_cliente(request):
     c3.save()
     c4.save()
     return redirect("cliente:home") #! APP_NAME Y PATH EN URLS
+
+def crear_cliente(request: HttpRequest) -> HttpResponse:
+    if request.method == "POST":  #! TRAE DATOS DEL FORMULARIO
+        form = ClienteForm(request.POST) #! SE GUARDA EN EL FORMULARIO
+        if form.is_valid():
+            form.save() #! BASE DE DATOS
+            return redirect("cliente:home") #! VOLVER A OTRA PAGINA PARA NO VOLVER A CREAR OTRO CLIENTE SI NO ES NECESARIO
+    else: # request.method == "GET":
+        form = ClienteForm()
+    return render(request, "cliente/crear.html", {"form": form})
+        
+def busqueda(request: HttpRequest) -> HttpResponse:
+    # BUSQUEDA POR NOMBRE
+    cliente_nombre = Cliente.objects.filter(nombre__contains="Valentin")
+
+    # BUSQUEDA POR FECHA DE NACIMIENTO > 2000
+    cliente_nacimiento = Cliente.objects.filter(nacimiento__gt=date(2000,1,1))
+
+    # BUSQUEDA POR PAIS DE ORIGEN VACIO
+    cliente_pais = Cliente.objects.filter(pais_origen_id=None)
+
+    contexto = {"cliente_nombre": cliente_nombre, 
+                "cliente_nacimiento": cliente_nacimiento,
+                "cliente_pais": cliente_pais}
+    return render(request, "cliente/busqueda.html", contexto)
 
