@@ -35,3 +35,5 @@
 # 13 Registrar los modelos en admin.py
 
 # 14 pip install djhtml
+
+# 15 
