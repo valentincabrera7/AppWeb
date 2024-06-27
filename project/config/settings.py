@@ -23,7 +23,9 @@ sys.path.append(str(APPS_DIR))
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-nw#i5ic!#0hae+gc_%tr(du2visyw(+rny$ihnp8+2q-_#**1#'
+#! Generar una clave aleatoria para el proyecto
+from django.core.management.utils import get_random_secret_key
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

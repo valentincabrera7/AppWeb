@@ -36,4 +36,4 @@
 
 # 14 pip install djhtml
 
-# 15 
+# 15 from django.core.management.utils import get_random_secret_key (clave aleatoria para el proyecto)
