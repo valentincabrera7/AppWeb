@@ -1,15 +1,23 @@
 {% extends 'producto/index.html' %}
 
 {% block INDEX_TITULO %}
-   Lista de Categorías de Productos
-   {% endblock INDEX_TITULO %}
-   
-   {% block INDEX_CONTENIDO %}
-   {% if object_list %}
-    <p>Hay elementos</p>
-        {% else %}
-    <p>No hay elementos</p>
-   {% endif %}
-   
-   <a href="{% url 'Home:home' %}">Volver</a>
+    Lista de Categorías de Productos
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    {% if categorias %}
+        <ul>
+            {% for categoria in categorias %}
+                <li>
+                    {{ categoria.nombre }} - {{ categoria.descripcion }}
+                    <a href="{% url 'producto:productocategoria_detail' categoria.id %}">Ver detalles</a>
+                    <a href="{% url 'producto:productocategoria_update' categoria.id %}">Actualizar</a>
+                    <a href="{% url 'producto:productocategoria_delete' categoria.id %}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay elementos</p>
+    {% endif %}
+    <a href="{% url 'Home:home' %}">Volver</a>
 {% endblock INDEX_CONTENIDO %}

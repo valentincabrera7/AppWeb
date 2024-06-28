@@ -5,6 +5,7 @@
    {% endblock INDEX_TITULO %}
    
    {% block INDEX_CONTENIDO %}
+   <a href="{% url 'producto:productocategoria_create' %}">Crear Categoría de Productos></a>
    <a href="{% url 'producto:productocategoria_list' %}">Listar Productos</a>>
    <a href="{% url 'Home:home' %}">Volver</a>
 {% endblock INDEX_CONTENIDO %}
