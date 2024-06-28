@@ -5,14 +5,14 @@
 {% endblock INDEX_TITULO %}
 
 {% block INDEX_CONTENIDO %}
-    {% if categorias %}
+    {% if object_list %}
         <ul>
-            {% for categoria in categorias %}
+            {% for object in object_list %}
                 <li>
-                    {{ categoria.nombre }} - {{ categoria.descripcion }}
-                    <a href="{% url 'producto:productocategoria_detail' categoria.id %}">Ver detalles</a>
-                    <a href="{% url 'producto:productocategoria_update' categoria.id %}">Actualizar</a>
-                    <a href="{% url 'producto:productocategoria_delete' categoria.id %}">Eliminar</a>
+                    {{ object.nombre }} - {{ object.descripcion }}
+                    <a href="{% url 'producto:productocategoria_detail' object.id %}" class="btn btn-primary">Ver detalles</a>
+                    <a href="{% url 'producto:productocategoria_update' object.id %}" class="btn btn-success">Actualizar</a>
+                    <a href="{% url 'producto:productocategoria_delete' object.id %}" class="btn btn-danger">Eliminar</a>
                 </li>
             {% endfor %}
         </ul>
