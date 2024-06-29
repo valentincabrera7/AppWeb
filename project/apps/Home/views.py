@@ -1,7 +1,8 @@
 from django.shortcuts import render 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse
+from django.http.request import HttpRequest
 from . import forms
 
 def home(request):
@@ -22,6 +23,9 @@ def login_request(request: HttpRequest) -> HttpResponse:
     else:
         form = forms.CustomAuthenticationForm()
     return render(request, "Home/login.html", {"form": form})
+
+
+
 
 
 
