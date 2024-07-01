@@ -8,7 +8,16 @@
 <br>
     {% block INDEX_CONTENIDO %}
     <p class="fs-5 fw-bold text-body-emphasis">
-        {{ mensaje }}
+
+        {% if user.is_authenticated %}
+            {{ mensaje }}
+            <h3>Bienvenido {{ user.username }}</h3>
+        {% endif %}
+
+        {% if user.is_staff %}
+            <p><a href="{% url 'admin:index' %}">Panel de administracion</a></p>
+            <p><a href="{% url 'Home:register' %}">Registrar nuevo usuario</p>
+        {% endif %}
      </p>
     <!-- Heading Row-->
     

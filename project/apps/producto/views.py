@@ -4,9 +4,11 @@ from . import forms
 from django.http import HttpResponse, HttpRequest
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
-# PÁGINA PRINCIPAL 
-
+# PÁGINA PRINCIPAL
+  
+@login_required
 def index(request):
     return render(request, "producto/index.html")
 
