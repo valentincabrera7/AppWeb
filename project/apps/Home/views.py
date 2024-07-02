@@ -27,11 +27,6 @@ def login_request(request: HttpRequest) -> HttpResponse:
     return render(request, "Home/login.html", {"form": form})
 
 
-def logout(request: HttpRequest) -> HttpResponse:
-    logout(request)
-    return redirect('Home:logout')
-
-
 #! REGISTRO 
 
 @staff_member_required
