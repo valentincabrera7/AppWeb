@@ -13,7 +13,7 @@ def index(request):
     return render(request, "producto/index.html")
 
 
-#! LISTAR PRODUCTOS
+#! LISTAR CATEGORIA DE PRODUCTOS
 # def productocategoria_list(request):
     #categorias = models.ProductoCategoria.objects.all()
     #contexto = {"categorias": categorias}
@@ -21,7 +21,7 @@ def index(request):
 class ProductoCategoriaList(ListView):
     model = models.ProductoCategoria
 
-#! CREAR PRODUCTOS
+#! CREAR CATEGORIA DE PRODUCTOS
 #def productocategoria_create(request):
     #if request.method == "POST":  #! En caso de guardar datos
         #form = forms.ProductoCategoriaForm(request.POST)
@@ -38,7 +38,7 @@ class ProductoCategoriaCreate(CreateView):
 
 
 
-#! DETALLE PRODUCTOS
+#! DETALLE DE CATEGORIA DE PRODUCTOS
 #def productocategoria_detail(request, pk):
     #query = models.ProductoCategoria.objects.get(id=pk) #! Consulta a la base de datos
     #return render(request, "producto/productocategoria_detail.html", {"object": query})
@@ -46,7 +46,7 @@ class ProductoCategoriaDetail(DetailView):
     model = models.ProductoCategoria
 
 
-#! ACTUALIZAR PRODUCTOS
+#! ACTUALIZAR CATEGORIA DE PRODUCTOS
 #def productocategoria_update(request, pk):
     #query = models.ProductoCategoria.objects.get(id=pk) #! Consulta a la base de datos
     #if request.method == "POST":  #! En caso de guardar datos
@@ -64,7 +64,7 @@ class ProductoCategoriaUpdate(UpdateView):
 
 
 
-#! ELIMINAR PRODUCTOS
+#! ELIMINAR CATEGORIA DE PRODUCTOS
 #def productocategoria_delete(request: HttpRequest, pk: int) -> HttpResponse:
     #query = models.ProductoCategoria.objects.get(id=pk)
     #if request.method == "POST":
@@ -76,7 +76,33 @@ class ProductoCategoriaDelete(DeleteView):
     success_url = reverse_lazy("producto:productocategoria_list")
     
 
+##################################################################################################################################################
+
+#! LISTAR PRODUCTOS 
+class ProductoList(ListView):
+    model = models.Producto
+    success_url = reverse_lazy("producto:producto_list")
 
 
+#! CREAR PRODUCTOS
+class ProductoCreate(CreateView):
+    model = models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_create")
 
+#! DETALLE DE PRODUCTOS
+class ProductoDetail(DetailView):
+    model = models.Producto    
+
+#! ACTUALIZAR PRODUCTOS
+class ProductoUpdate(UpdateView):
+    model = models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_update")
+
+#! ELIMINAR PRODUCTOS
+class ProductoDelete(DeleteView):
+    model = models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
 
