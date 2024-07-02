@@ -1,4 +1,4 @@
-from django.shortcuts import render 
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.http import HttpResponse
@@ -26,6 +26,10 @@ def login_request(request: HttpRequest) -> HttpResponse:
         form = forms.CustomAuthenticationForm()
     return render(request, "Home/login.html", {"form": form})
 
+
+def logout(request: HttpRequest) -> HttpResponse:
+    logout(request)
+    return redirect('Home:logout')
 
 
 #! REGISTRO 
