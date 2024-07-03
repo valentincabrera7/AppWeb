@@ -88,17 +88,18 @@ class ProductoList(ListView):
 class ProductoCreate(CreateView):
     model = models.Producto
     form_class = forms.ProductoForm
-    success_url = reverse_lazy("producto:producto_create")
+    success_url = reverse_lazy("producto:producto_list")
 
 #! DETALLE DE PRODUCTOS
 class ProductoDetail(DetailView):
     model = models.Producto    
+    success_url = reverse_lazy("producto:producto_detail")
 
 #! ACTUALIZAR PRODUCTOS
 class ProductoUpdate(UpdateView):
     model = models.Producto
     form_class = forms.ProductoForm
-    success_url = reverse_lazy("producto:producto_update")
+    success_url = reverse_lazy("producto:producto_list")
 
 #! ELIMINAR PRODUCTOS
 class ProductoDelete(DeleteView):

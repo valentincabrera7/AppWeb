@@ -1,0 +1,23 @@
+{% extends 'producto/index.html' %}
+
+{% block INDEX_TITULO %}
+    Lista de Productos
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    {% if object_list %}
+        <ul>
+            {% for object in object_list %}
+                <li>
+                    {{ object.nombre }} - {{ object.precio }}
+                    <a href="{% url 'producto:producto_detail' object.id %}" class="btn btn-primary">Ver detalles</a>
+                    <a href="{% url 'producto:producto_update' object.id %}" class="btn btn-success">Actualizar</a>
+                    <a href="{% url 'producto:producto_delete' object.id %}" class="btn btn-danger">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay elementos</p>
+    {% endif %}
+    <a href="{% url 'Home:home' %}">Volver</a>
+{% endblock INDEX_CONTENIDO %}

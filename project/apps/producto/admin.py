@@ -19,6 +19,7 @@ class ProductoAdmin(admin.ModelAdmin):
     ordering = ("categoria", "nombre")
     list_filter = ('categoria',)
     date_hierarchy = 'fecha_actualizacion'
+    
 
 
 
